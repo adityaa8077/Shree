@@ -26,13 +26,13 @@ export default function DreamsWorthChasing() {
           className="text-center mb-16"
         >
           <span className="font-playfair text-[10px] tracking-[0.3em] text-warmGold uppercase block mb-2">
-            What Makes You Special
+            Why My Heart Fell For You
           </span>
           <h2 className="font-playfair text-4xl md:text-6xl font-bold mb-6 gold-gradient">
-            Treasures of Your Heart
+            Treasures of Dhanshree&apos;s Heart
           </h2>
           <p className="font-cormorant text-xl md:text-2xl text-softIvory/70 italic max-w-2xl mx-auto">
-            &quot;Some people bring happiness wherever they go, but you bring it even in quiet thoughts.&quot;
+            &quot;Some people bring happiness wherever they go, but you, my Dove, bring it even in my quietest thoughts.&quot;
           </p>
           <div className="w-[80px] h-[1px] bg-gradient-to-r from-transparent via-warmGold to-transparent mx-auto mt-6"></div>
         </motion.div>
@@ -67,7 +67,7 @@ export default function DreamsWorthChasing() {
           className="text-center mt-16"
         >
           <p className="font-cormorant text-2xl md:text-3xl text-warmGold italic">
-            If I were given a hundred lifetimes, I would choose to know you every single time. ✨
+            If I were given a hundred lifetimes, I would choose you, Dhanshree, every single time. My Dove, always. ✨🕊️
           </p>
         </motion.div>
 

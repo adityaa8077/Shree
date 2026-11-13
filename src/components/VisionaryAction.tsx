@@ -20,11 +20,11 @@ export default function VisionaryAction() {
           className="space-y-10"
         >
           <span className="font-playfair text-[10px] tracking-[0.3em] text-warmGold uppercase block">
-            Pure Grace
+            Pure Grace • My Dove
           </span>
 
           <h2 className="font-playfair text-4xl md:text-6xl font-bold gold-gradient">
-            The Magic of Her Presence
+            The Magic of Dhanshree
           </h2>
 
           <div className="glass rounded-lg p-10 md:p-14 border border-warmGold/20 max-w-3xl mx-auto">
@@ -36,13 +36,13 @@ export default function VisionaryAction() {
 
             <div className="space-y-6 font-inter text-base md:text-lg text-softIvory/85 leading-relaxed text-left">
               <p>
-                Some people leave impressions through grand gestures, but with her, it is in the simplest, purest moments. The effortless way she makes everyone around her feel valued and safe. The softness in her voice, and the natural kindness she pours out so freely.
+                Some people leave impressions through grand gestures, but with you, Dhanshree, it is in the simplest, purest moments. The effortless way you make everyone around you feel valued and safe. The softness in your voice, and the natural kindness you pour out so freely.
               </p>
               <p>
-                In a world where people so often build walls, she chooses to remain gentle, real, and compassionate. That unfiltered grace is what makes her truly unforgettable.
+                In a world where people so often build walls, my sweet Dove chooses to remain gentle, real, and compassionate. That unfiltered grace is what makes you truly unforgettable to my heart.
               </p>
               <p className="text-warmGold font-semibold text-center text-xl sm:text-2xl font-playfair italic pt-2">
-                She didn&apos;t try to change my world. She just smiled. ✨
+                You didn&apos;t try to change my world, Dhanshree. You just smiled. ✨🕊️
               </p>
             </div>
           </div>

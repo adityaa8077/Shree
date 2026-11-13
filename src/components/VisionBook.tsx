@@ -6,32 +6,32 @@ import Image from 'next/image';
 
 const visionItems = [
   {
-    title: "Carefree Happiness",
-    description: "Picture this: a warm, sunlit afternoon with a gentle breeze, and you laughing freely without a single worry on your mind. Completely at ease, peaceful, and radiant.",
-    image: "/images/dear-her-1.jpeg",
+    title: "Carefree Happiness For My Dove",
+    description: "Picture this: a warm, sunlit afternoon with a gentle breeze, and you laughing freely without a single worry on your mind. Completely at ease, peaceful, and radiant, Dhanshree.",
+    image: "/images/shree/shree-4.jpeg",
     objectPos: "50% 15%",
-    quote: "\"Your happiness is honestly the most beautiful sight in the universe.\""
+    quote: "\"Your smile, Dhanshree, is honestly the most beautiful sight in this entire universe.\""
   },
   {
-    title: "Deeply Cherished",
-    description: "A life where every ounce of kindness and love you have given to others returns to you tenfold. Where your tender heart is always safe, valued, and understood.",
-    image: "/images/dear-her-2.jpeg",
+    title: "Deeply Cherished Forever",
+    description: "A life where every ounce of kindness and pure love you have given to others returns to you tenfold. Where your tender heart is always protected, safe, treasured, and understood.",
+    image: "/images/shree/shree-5.jpeg",
     objectPos: "50% 15%",
-    quote: "\"You deserve all the love you give away so selflessly.\""
+    quote: "\"You deserve all the gentle love in the world, my Dove 🕊️.\""
   },
   {
-    title: "Quiet Sunsets & Wonder",
-    description: "Exploring beautiful streets, watching golden sunsets, and feeling that every step of your life is unfolding into something breathtaking and magical.",
-    image: "/images/dear-her-3.jpeg",
+    title: "Quiet Sunsets & Dreams",
+    description: "Walking hand in hand along quiet paths, watching golden sunsets paint the sky, knowing you never have to face this world alone. Every moment becomes a cherished memory.",
+    image: "/images/shree/shree-6.jpeg",
     objectPos: "50% 15%",
-    quote: "\"May the universe always lay out a path of flowers for your feet.\""
+    quote: "\"May the universe always lay out a path of fragrant flowers for your feet.\""
   },
   {
-    title: "Peace in Every Tomorrow",
-    description: "Knowing deep down that you are enough, that your presence alone lights up rooms, and that someone out there will always be cheering for you from the bottom of their heart.",
-    image: "/images/dear-her-4.jpeg",
+    title: "Forever Cheering For You",
+    description: "Knowing deep in your soul that you are enough, that your presence alone lights up rooms, and that someone right here will love and cheer for you with all his heart for all time.",
+    image: "/images/shree/shree-7.jpeg",
     objectPos: "50% 15%",
-    quote: "\"Someone who thanks the stars every single night, just because you exist.\""
+    quote: "\"Someone who thanks the stars every single night, just because Dhanshree exists. ✨\""
   },
 ];
 
@@ -52,13 +52,13 @@ export default function VisionBook() {
           className="text-center mb-12 sm:mb-16"
         >
           <span className="font-playfair text-[10px] tracking-[0.3em] text-warmGold uppercase block mb-2">
-            Wishes For Your Tomorrow
+            My Dreams For My Dove
           </span>
           <h2 className="font-playfair text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 gold-gradient">
-            Visions of Your Happiness
+            Visions of Dhanshree&apos;s Happiness
           </h2>
           <p className="font-cormorant text-lg sm:text-xl md:text-2xl text-softIvory/70 italic max-w-2xl mx-auto px-2">
-            &quot;Close your eyes. Imagine all the peace and joy waiting for you. You deserve every bit of it.&quot;
+            &quot;Close your eyes, my Dove. Imagine all the peace, laughter, and love waiting for you. You deserve every single bit of it.&quot;
           </p>
           <div className="w-[80px] h-[1px] bg-gradient-to-r from-transparent via-warmGold to-transparent mx-auto mt-4 sm:mt-6"></div>
         </motion.div>
@@ -74,16 +74,22 @@ export default function VisionBook() {
               onClick={() => setActiveVision(idx)}
               className="group cursor-pointer relative rounded-lg overflow-hidden border border-warmGold/20 hover:border-warmGold/60 transition-all duration-300 shadow-lg active:scale-98 bg-[#111]"
             >
-              <div className="relative w-full h-[260px] sm:h-[320px]">
+              <div className="relative w-full h-[320px] sm:h-[400px] overflow-hidden bg-black/60">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
-                  className="object-cover transition-transform duration-500 group-hover:scale-105 filter brightness-[0.75] group-hover:brightness-[0.95]"
-                  style={{ objectPosition: item.objectPos }}
+                  className="object-cover blur-sm opacity-30 scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-deepBlack/90 via-deepBlack/30 to-transparent pointer-events-none"></div>
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-contain transition-transform duration-500 group-hover:scale-105 filter brightness-[0.9] group-hover:brightness-100 p-2"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-deepBlack/95 via-transparent to-transparent pointer-events-none"></div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-5 sm:p-6">
                 <h3 className="font-playfair text-lg sm:text-xl font-bold text-softIvory group-hover:text-warmGold transition-colors mb-1 sm:mb-2">
@@ -115,14 +121,13 @@ export default function VisionBook() {
                 onClick={(e) => e.stopPropagation()}
                 className="w-full max-w-xl glass rounded-lg border border-warmGold/30 shadow-2xl overflow-hidden cursor-default max-h-[90vh] overflow-y-auto"
               >
-                <div className="relative w-full h-[240px] sm:h-[300px]">
+                <div className="relative w-full h-[45vh] sm:h-[55vh] bg-black/80 overflow-hidden">
                   <Image
                     src={visionItems[activeVision].image}
                     alt={visionItems[activeVision].title}
                     fill
                     sizes="100vw"
-                    className="object-cover filter brightness-[0.85]"
-                    style={{ objectPosition: visionItems[activeVision].objectPos }}
+                    className="object-contain filter brightness-[0.95] p-2"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-deepBlack/80 via-transparent to-transparent pointer-events-none" />
                   <button

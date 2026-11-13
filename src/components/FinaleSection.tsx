@@ -21,15 +21,24 @@ export default function FinaleSection() {
           transition={{ duration: 1.5 }}
           className="relative mb-12 sm:mb-20 max-w-4xl mx-auto"
         >
-          <div className="relative w-full rounded-lg overflow-hidden shadow-2xl border border-warmGold/30 bg-black/40 h-[360px] sm:h-[480px] md:h-[580px]">
+          <div className="relative w-full rounded-2xl overflow-hidden shadow-2xl border-2 border-warmGold/40 bg-black/70 h-[440px] sm:h-[560px] md:h-[660px] p-2">
             <Image
-              src="/images/dear-her-1.jpeg"
-              alt="Dear Her"
+              src="/images/shree/shree-10.jpeg"
+              alt="Dhanshree - Backdrop"
               fill
               sizes="(max-width: 768px) 100vw, 800px"
-              className="object-cover"
-              style={{ objectPosition: '50% 20%' }}
+              className="object-cover blur-md opacity-25 scale-105"
             />
+            <div className="relative w-full h-full rounded-xl overflow-hidden">
+              <Image
+                src="/images/shree/shree-10.jpeg"
+                alt="Dhanshree - My Forever Dove"
+                fill
+                sizes="(max-width: 768px) 100vw, 800px"
+                className="object-contain"
+                priority
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-deepBlack/50 via-transparent to-transparent pointer-events-none" />
           </div>
           <div className="absolute -inset-4 bg-gradient-radial from-warmGold/15 to-transparent blur-3xl -z-10"></div>
@@ -81,8 +90,9 @@ export default function FinaleSection() {
         >
           <div className="inline-block glass rounded-full px-6 sm:px-12 py-3 sm:py-5 border border-warmGold/35 shadow-lg">
             <p className="font-cormorant text-lg sm:text-2xl md:text-4xl text-warmGold flex items-center justify-center gap-2 sm:gap-4">
-              <span className="text-3xl sm:text-5xl">✨</span>
-              <span className="italic font-semibold">For Dear Her, with all my heart ✦</span>
+              <span className="text-3xl sm:text-5xl">🕊️</span>
+              <span className="italic font-semibold">For Dhanshree, with all my love forever ✦</span>
+              <span className="text-3xl sm:text-5xl">❤️</span>
             </p>
           </div>
         </motion.div>
@@ -98,32 +108,32 @@ export default function FinaleSection() {
             <div className="glass rounded-lg p-6 sm:p-10 md:p-14 border border-warmGold/35 relative shadow-2xl">
               <div className="space-y-6 sm:space-y-8 font-inter text-sm sm:text-base md:text-lg text-softIvory/90 leading-relaxed text-center sm:text-left">
                 <p className="font-playfair text-xl sm:text-2xl md:text-3xl text-warmGold font-semibold text-center mb-4 sm:mb-6">
-                  From Someone Who Believes In You More Than Anyone
+                  From My Heart To Yours, Dhanshree
                 </p>
 
                 <p>
-                  Hey, Dear Her. If you&apos;ve made it this far, thank you. Thank you for walking through this little world with me.
+                  Hey, my dearest Dove. If you&apos;ve made it this far, thank you. Thank you for walking through this little universe with me.
                 </p>
 
                 <p>
-                  I made this because I wanted you to see yourself through my eyes — even if just for a few moments. To see how deeply you are appreciated, how genuine your kindness is, and how much light you bring into every room just by existing.
+                  I made this because I wanted you to see yourself through my eyes — even if just for a few moments. To see how deeply you are adored, how genuine your kindness is, and how much light you bring into my life just by existing.
                 </p>
 
                 <p>
-                  Your laughter, your gentle spirit, and your warmth are honestly the reason I believe in good things. You make this world softer, brighter, and infinitely more beautiful.
+                  Your laughter, your sweet innocence, and your warm soul are honestly the greatest blessings I have ever known. You make this world softer, brighter, and infinitely more beautiful.
                 </p>
 
                 <p className="font-cormorant text-xl sm:text-2xl md:text-3xl text-warmGold italic text-center font-medium pt-2 sm:pt-4">
-                  Thank you for being you, Dear Her. Always. ✨
+                  Thank you for being you, Dhanshree. You will always be my Dove, my heart, and my home. 🕊️✨
                 </p>
               </div>
 
               <div className="border-t border-warmGold/15 pt-6 sm:pt-8 mt-8 sm:mt-10 text-center">
                 <p className="font-playfair text-lg sm:text-xl text-warmGold font-semibold uppercase tracking-widest">
-                  With All My Love — Aditya ❤️
+                  Forever and Always Yours — Aditya ❤️
                 </p>
                 <div className="text-center mt-4">
-                  <span className="text-3xl sm:text-5xl">✨</span>
+                  <span className="text-3xl sm:text-5xl">🕊️ 💫 💖</span>
                 </div>
               </div>
             </div>

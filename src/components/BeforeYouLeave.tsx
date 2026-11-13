@@ -30,7 +30,7 @@ export default function BeforeYouLeave() {
           transition={{ duration: 1 }}
           className="font-playfair text-[10px] tracking-[0.3em] text-warmGold uppercase block mb-12"
         >
-          Before You Leave
+          Before You Leave • My Dove 🕊️
         </motion.span>
 
         <motion.div
@@ -78,20 +78,20 @@ export default function BeforeYouLeave() {
 
           <motion.div variants={paragraphVariants} className="space-y-6 pt-4">
             <p className="font-playfair text-3xl md:text-4xl gold-gradient font-bold not-italic">
-              You never had to prove your worth to anyone.
+              You never had to prove your worth to anyone, Dhanshree.
               <br />
               You are already more precious than words can ever hold.
             </p>
           </motion.div>
 
           <motion.p variants={paragraphVariants} className="pt-10 text-xl md:text-2xl text-softIvory/75 font-cormorant leading-relaxed max-w-2xl mx-auto">
-            And whenever you need a quiet place to rest your thoughts…
+            And whenever you need a gentle, loving place to rest your thoughts…
             <br />
-            This little corner of the internet will be here.
+            This little world, and my heart, will always be right here.
             <br />
-            Waiting for you.
+            Waiting for you, my sweet Dove.
             <br />
-            Just as it always has.
+            Just as I always will. 🕊️❤️
           </motion.p>
         </motion.div>
 

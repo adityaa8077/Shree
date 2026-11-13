@@ -7,23 +7,23 @@ import Image from 'next/image';
 const journeySteps = [
   { 
     title: "The Quiet First Impression", 
-    description: "How softly you walked into my world, completely unaware of the light you carry. Some people need to make noise to be noticed; you captured my attention simply by being yourself." 
+    description: "How softly you walked into my world, Dhanshree, completely unaware of the light you carry. Some people need to make noise to be noticed; you captured my whole heart simply by being yourself." 
   },
   { 
-    title: "The Kindness You Give", 
-    description: "The effortless way you make everyone around you feel valued, safe, and heard. In a world that often rushes past feelings, your heart remains one of the warmest places to be." 
+    title: "The Sweetness of My Dove", 
+    description: "The effortless way you make everyone around you feel valued, safe, and heard. You carry a heart so soft and pure that I want to protect your happiness for a lifetime." 
   },
   { 
     title: "The Miracle of Your Smile", 
-    description: "That genuine, radiant smile of yours that honestly stops time. One glimpse of it has this magical way of making even the heaviest, most exhausting days instantly lighter." 
+    description: "That genuine, radiant smile of yours that honestly stops time. One glimpse of it has this magical power to make any heavy day feel instantly lighter." 
   },
   { 
-    title: "The Tender Soul Inside", 
-    description: "Beyond your graceful elegance lies a heart so deeply sincere and caring. You choose gentleness, warmth, and honesty — and that is the rarest kind of beauty." 
+    title: "When Admiration Turned Into Love", 
+    description: "Beyond your stunning grace lies a soul so deeply sincere and caring. With every little moment, I found myself falling deeper in love with you." 
   },
   { 
-    title: "The Greatest Gift", 
-    description: "Out of all the billions of paths in this universe, ours managed to cross. You have quietly, softly, become one of the most beautiful chapters of my life's story." 
+    title: "Destined Across Billions", 
+    description: "Out of all the billions of paths in this universe, ours crossed. Dhanshree, you have become my favorite thought, my quiet peace, and my forever prayer." 
   },
 ];
 
@@ -48,10 +48,10 @@ export default function JourneySection() {
             Moments Of Admiration
           </span>
           <h2 className="font-playfair text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 gold-gradient">
-            Chapters of Your Grace
+            Chapters of You & Me
           </h2>
           <p className="font-cormorant text-lg sm:text-xl md:text-2xl text-softIvory/70 italic max-w-2xl mx-auto px-2">
-            &quot;In every chapter, you bring a quiet magic that makes everything feel right.&quot;
+            &quot;In every chapter of my life, Dhanshree, you bring a quiet magic that makes everything feel right.&quot;
           </p>
           <div className="w-[80px] h-[1px] bg-gradient-to-r from-transparent via-warmGold to-transparent mx-auto mt-4 sm:mt-6"></div>
         </motion.div>
@@ -100,16 +100,24 @@ export default function JourneySection() {
           transition={{ duration: 1.2 }}
           className="relative w-full max-w-md mx-auto mt-8 sm:mt-12"
         >
-          <div className="relative w-full h-[360px] sm:h-[460px] rounded-lg overflow-hidden shadow-2xl border border-warmGold/20">
+          <div className="relative w-full h-[420px] sm:h-[520px] rounded-2xl overflow-hidden shadow-2xl border-2 border-warmGold/30 bg-black/60 p-2">
             <Image
-              src="/images/dear-her-4.jpeg"
-              alt="Her Grace"
+              src="/images/shree/shree-2.jpeg"
+              alt="Dhanshree - Backdrop"
               fill
               sizes="(max-width: 768px) 100vw, 450px"
-              className="object-cover"
-              style={{ objectPosition: '50% 12%' }}
+              className="object-cover blur-md opacity-25 scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-deepBlack/50 via-transparent to-transparent pointer-events-none" />
+            <div className="relative w-full h-full rounded-xl overflow-hidden">
+              <Image
+                src="/images/shree/shree-2.jpeg"
+                alt="Dhanshree - Chapters of Us"
+                fill
+                sizes="(max-width: 768px) 100vw, 450px"
+                className="object-contain"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-deepBlack/40 via-transparent to-transparent pointer-events-none" />
           </div>
           <div className="absolute -inset-4 bg-gradient-radial from-warmGold/10 to-transparent blur-3xl -z-10"></div>
         </motion.div>

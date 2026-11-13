@@ -21,6 +21,7 @@ import DreamsWorthChasing from '@/components/DreamsWorthChasing';
 import VisionBook from '@/components/VisionBook';
 import ThingsNeverChange from '@/components/ThingsNeverChange';
 import MemoryGarden from '@/components/MemoryGarden';
+import StoryOfUs from '@/components/StoryOfUs';
 import OpenWhenLetters from '@/components/OpenWhenLetters';
 import HeartbeatConfession from '@/components/HeartbeatConfession';
 import WhenLifeFeelsHeavy from '@/components/WhenLifeFeelsHeavy';
@@ -30,25 +31,38 @@ import FinalScene from '@/components/FinalScene';
 export default function Home() {
   const [started, setStarted] = useState(false);
   const [confessionOpen, setConfessionOpen] = useState(false);
-  const [sectionTrack, setSectionTrack] = useState<'sitare' | 'khat' | 'sajde'>('sitare');
+  const [sectionTrack, setSectionTrack] = useState<TrackName>('sitare');
 
-  // Track scroll position to determine which song should play:
-  // 1. "Sitaare" plays till she reaches "Things About You That I Love"
-  // 2. "Khat" starts playing when she comes down to "Things About You That I Love"
-  // 3. "Sajde" starts playing when she comes down to "Through My Eyes"
+  // Track scroll position to determine ambient soundtrack:
+  // 1. "Sitaare" plays initially (Hero, Journey, Quiet Grind)
+  // 2. "Khat" starts playing when reaching "Things About You That I Love"
+  // 3. "Alfaaz (Unki Tareef)" starts playing at "Through My Eyes" (Memory Garden)
+  // 4. "Dilruba Dilnasheen" starts playing at "Story of Us"
+  // 5. "Sajde" starts playing at "Open When Letters" and beyond
   useEffect(() => {
     const handleScroll = () => {
       const thingsElem = document.getElementById('things-never-change');
       const memoryElem = document.getElementById('memory-garden');
-
-      if (!thingsElem || !memoryElem) return;
+      const storyElem = document.getElementById('story-of-us');
+      const lettersElem = document.getElementById('open-when');
+      const finalSceneElem = document.getElementById('final-scene');
 
       const triggerPoint = window.innerHeight * 0.45;
-      const thingsTop = thingsElem.getBoundingClientRect().top;
-      const memoryTop = memoryElem.getBoundingClientRect().top;
 
-      if (memoryTop <= triggerPoint) {
+      const finalSceneTop = finalSceneElem ? finalSceneElem.getBoundingClientRect().top : Infinity;
+      const lettersTop = lettersElem ? lettersElem.getBoundingClientRect().top : Infinity;
+      const storyTop = storyElem ? storyElem.getBoundingClientRect().top : Infinity;
+      const memoryTop = memoryElem ? memoryElem.getBoundingClientRect().top : Infinity;
+      const thingsTop = thingsElem ? thingsElem.getBoundingClientRect().top : Infinity;
+
+      if (finalSceneTop <= triggerPoint) {
+        setSectionTrack('alfaaz'); // WhatsApp Audio at the end!
+      } else if (lettersTop <= triggerPoint) {
         setSectionTrack('sajde');
+      } else if (storyTop <= triggerPoint) {
+        setSectionTrack('dilruba');
+      } else if (memoryTop <= triggerPoint) {
+        setSectionTrack('alfaaz');
       } else if (thingsTop <= triggerPoint) {
         setSectionTrack('khat');
       } else {
@@ -63,8 +77,8 @@ export default function Home() {
   }, []);
 
   // Compute active track:
-  // - In letter ("Open When You're Ready For Something I Never Said"): play "arz-kiya-hai" only
-  // - Otherwise: play track corresponding to the current section (sitare -> khat -> sajde)
+  // - In confession experience: play "arz-kiya-hai"
+  // - Otherwise: play ambient section track
   const currentTrack: TrackName = confessionOpen ? 'arz-kiya-hai' : sectionTrack;
 
   return (
@@ -74,15 +88,19 @@ export default function Home() {
 
       {/* Intro Overlay & Music Loader */}
       <WelcomeOverlay onEnter={() => setStarted(true)} />
-      <BackgroundMusic playMusic={started} currentTrack={currentTrack} />
+      <BackgroundMusic
+        playMusic={started}
+        currentTrack={currentTrack}
+        onTrackChange={(t) => setSectionTrack(t)}
+      />
       <FallingPetals active={started} />
-      
+
       {/* Header bar */}
       <NetflixNavbar />
-      
+
       <main className="relative min-h-screen">
         <ParticleBackground />
-        
+
         {/* Story & Keepsake Sections */}
         <HeroSection />
         <TodayReminder />
@@ -95,14 +113,18 @@ export default function Home() {
         <HeartBehindBrilliance />
         <ThingsNeverChange />
         <MemoryGarden />
+        <StoryOfUs />
         <OpenWhenLetters onConfessionOpen={() => setConfessionOpen(true)} />
         <WhenLifeFeelsHeavy />
         <BeforeYouLeave />
         <FinaleSection />
-        <FinalScene onInViewChange={() => {}} />
+        <FinalScene
+          onInViewChange={() => { }}
+          onPlayWhatsAppAudio={() => setSectionTrack('alfaaz')}
+        />
       </main>
 
-      {/* Heartbeat Confession Experience Overlay - plays "arz kiya hai" only */}
+      {/* Heartbeat Confession Experience Overlay */}
       <HeartbeatConfession
         isOpen={confessionOpen}
         onClose={() => setConfessionOpen(false)}

@@ -28,19 +28,19 @@ export default function NetflixNavbar() {
     <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-deepBlack/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-4'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-deepBlack/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-4'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 flex items-center justify-between">
         <div className="flex items-center gap-6 sm:gap-8">
-          <button 
-            onClick={() => scrollToSection('hero')} 
-            className="font-playfair text-xl sm:text-2xl md:text-3xl font-bold gold-gradient cursor-pointer tracking-wider text-left"
+          <button
+            onClick={() => scrollToSection('hero')}
+            className="font-playfair text-xl sm:text-2xl md:text-3xl font-bold gold-gradient cursor-pointer tracking-wider text-left flex items-center gap-2"
           >
-            DEAR HER
+            <span>DHANSHREE</span>
+            <span className="text-base sm:text-lg text-rose-300 font-normal">🕊️ (Dove)</span>
           </button>
-          
+
           <div className="hidden md:flex gap-6 font-inter text-sm">
             <button onClick={() => scrollToSection('hero')} className="text-softIvory/80 hover:text-warmGold transition-colors cursor-pointer">
               Home
@@ -48,14 +48,14 @@ export default function NetflixNavbar() {
             <button onClick={() => scrollToSection('quiet-grind')} className="text-softIvory/80 hover:text-warmGold transition-colors cursor-pointer">
               Her Grace
             </button>
-            <button onClick={() => scrollToSection('visionary-action')} className="text-softIvory/80 hover:text-warmGold transition-colors cursor-pointer">
-              Her Presence
-            </button>
             <button onClick={() => scrollToSection('destination-google')} className="text-softIvory/80 hover:text-warmGold transition-colors cursor-pointer">
               Wishes For You
             </button>
-            <button onClick={() => scrollToSection('heart-behind-brilliance')} className="text-softIvory/80 hover:text-warmGold transition-colors cursor-pointer">
-              Her Heart
+            <button onClick={() => scrollToSection('memory-garden')} className="text-softIvory/80 hover:text-warmGold transition-colors cursor-pointer">
+              Through My Eyes
+            </button>
+            <button onClick={() => scrollToSection('story-of-us')} className="text-softIvory/80 hover:text-warmGold transition-colors cursor-pointer">
+              Story of Us
             </button>
             <button onClick={() => scrollToSection('open-when')} className="text-softIvory/80 hover:text-warmGold transition-colors cursor-pointer">
               Letters
@@ -64,13 +64,13 @@ export default function NetflixNavbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <button 
+          <button
             onClick={() => scrollToSection('open-when')}
-            className="md:hidden text-xs font-inter uppercase tracking-widest text-warmGold border border-warmGold/30 px-3 py-1 rounded-full cursor-pointer"
+            className="text-xs font-inter uppercase tracking-widest text-warmGold border border-warmGold/40 hover:border-warmGold px-3.5 py-1.5 rounded-full cursor-pointer transition-colors bg-warmGold/10"
           >
-            Letters
+            My Letters 💌
           </button>
-          <span className="text-2xl sm:text-3xl select-none">💫</span>
+          <span className="text-2xl select-none animate-pulse">🕊️</span>
         </div>
       </div>
     </motion.nav>

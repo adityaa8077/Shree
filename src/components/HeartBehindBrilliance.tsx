@@ -22,13 +22,13 @@ export default function HeartBehindBrilliance() {
           className="text-center mb-12 sm:mb-16"
         >
           <span className="font-playfair text-[10px] tracking-[0.3em] text-warmGold uppercase block mb-2">
-            The Pure Soul Inside
+            The Pure Soul Inside • My Dove
           </span>
           <h2 className="font-playfair text-3xl sm:text-5xl md:text-7xl font-bold mb-4 sm:mb-6 gold-gradient">
             The Heart Behind That Smile
           </h2>
           <p className="font-cormorant text-lg sm:text-2xl md:text-3xl text-softIvory/75 italic max-w-3xl mx-auto px-2">
-            Radiant on the outside, but your gentle kindness is what truly captivates me.
+            Radiant on the outside, Dhanshree, but your gentle kindness is what truly stole my heart.
           </p>
           <div className="w-[80px] sm:w-[100px] h-[2px] bg-gradient-to-r from-transparent via-warmGold to-transparent mx-auto mt-4 sm:mt-6"></div>
         </motion.div>
@@ -41,15 +41,23 @@ export default function HeartBehindBrilliance() {
             transition={{ duration: 1, ease: 'easeOut' }}
             className="md:col-span-5 relative max-w-md mx-auto md:max-w-none w-full"
           >
-            <div className="relative w-full h-[360px] sm:h-[460px] md:h-[520px] rounded-lg overflow-hidden shadow-2xl border border-warmGold/20">
+            <div className="relative w-full h-[420px] sm:h-[520px] md:h-[580px] rounded-2xl overflow-hidden shadow-2xl border-2 border-warmGold/30 bg-black/60 p-2">
               <Image
-                src="/images/dear-her-5.jpeg"
-                alt="Dear Her - Pure Heart"
+                src="/images/shree/shree-8.jpeg"
+                alt="Dhanshree - Backdrop"
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
-                className="object-cover"
-                style={{ objectPosition: '50% 15%' }}
+                className="object-cover blur-md opacity-25 scale-110"
               />
+              <div className="relative w-full h-full rounded-xl overflow-hidden">
+                <Image
+                  src="/images/shree/shree-8.jpeg"
+                  alt="Dhanshree - Pure Heart"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-contain"
+                />
+              </div>
               <div className="absolute inset-0 bg-gradient-to-t from-deepBlack/40 via-transparent to-transparent pointer-events-none" />
             </div>
             <div className="absolute -inset-4 bg-gradient-radial from-warmGold/10 to-transparent blur-2xl -z-10 rounded-lg"></div>
@@ -64,20 +72,20 @@ export default function HeartBehindBrilliance() {
           >
             <div className="glass rounded-lg p-6 sm:p-10 md:p-12 border border-warmGold/20 relative shadow-2xl space-y-4 sm:space-y-6">
               <p className="font-cormorant text-xl sm:text-2xl md:text-3xl text-warmGold font-medium italic leading-relaxed border-b border-warmGold/15 pb-4 sm:pb-6">
-                &quot;Behind that graceful smile lies a heart that cares more deeply and gently than words can ever tell.&quot;
+                &quot;Behind that graceful smile lies a heart that cares more deeply and gently than any poem could ever tell.&quot;
               </p>
 
               <div className="space-y-4 sm:space-y-6 font-inter text-sm sm:text-base md:text-lg text-softIvory/90 leading-relaxed">
                 <p className="font-playfair text-lg sm:text-xl md:text-2xl text-softIvory font-semibold">
-                  To the most beautiful soul I know,
+                  To my sweetest Dhanshree (Dove 🕊️),
                 </p>
 
                 <p>
-                  People will always notice how effortlessly radiant you look, or how gracefully you carry yourself wherever you go.
+                  People will always notice how effortlessly breathtaking you look, or how gracefully you carry yourself wherever you go.
                 </p>
 
                 <p>
-                  But what moves me most about you isn&apos;t just your beauty — it is the warmth of your heart. The way you make everyone around you feel safe and deeply valued. The effortless gentleness with which you listen, and the quiet comfort you bring just by walking into a room. You don&apos;t just make the world look better; you make it feel softer, warmer, and whole.
+                  But what moves me to tears about you, Dhanshree, isn&apos;t just your beauty — it is the tender warmth of your heart. The way you make everyone around you feel safe and deeply valued. The effortless gentleness with which you speak, and the quiet comfort you bring just by walking into a room. You don&apos;t just make the world look better; you make my whole life feel softer, warmer, and full of purpose.
                 </p>
               </div>
 

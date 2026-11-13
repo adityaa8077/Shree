@@ -1,36 +1,85 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export type TrackName = 'sitare' | 'khat' | 'arz-kiya-hai' | 'sajde';
+export type TrackName = 'sitare' | 'khat' | 'sajde' | 'alfaaz' | 'dilruba' | 'arz-kiya-hai';
+
+export interface TrackInfo {
+  id: TrackName;
+  title: string;
+  artist: string;
+  file: string;
+  badge?: string;
+}
+
+export const playlist: TrackInfo[] = [
+  {
+    id: 'sitare',
+    title: 'Sitaare',
+    artist: 'From Ikkis',
+    file: '/audio/sitare.mp3',
+    badge: 'Opening Melody',
+  },
+  {
+    id: 'khat',
+    title: 'Khat',
+    artist: 'Romantic Khat',
+    file: '/audio/khat.mp3',
+    badge: 'Love Letter',
+  },
+  {
+    id: 'alfaaz',
+    title: 'Alfaaz (Unki Tareef)',
+    artist: 'Hamza Malik & Zain Zohaib',
+    file: '/audio/alfaaz.mp3',
+    badge: 'Special For Dove',
+  },
+  {
+    id: 'dilruba',
+    title: 'Dilruba Dilnasheen',
+    artist: 'Rito Riba',
+    file: '/audio/dilruba.mp3',
+    badge: 'Special For Dove',
+  },
+  {
+    id: 'sajde',
+    title: 'Sajde',
+    artist: 'Khatta Meetha',
+    file: '/audio/sajde.mp3',
+    badge: 'Devotion',
+  },
+  {
+    id: 'arz-kiya-hai',
+    title: 'Arz Kiya Hai',
+    artist: 'Koshal World',
+    file: '/audio/arz-kiya-hai.mp3',
+    badge: 'Heartbeat Confession',
+  },
+];
 
 interface BackgroundMusicProps {
   playMusic: boolean;
   currentTrack: TrackName;
+  onTrackChange?: (track: TrackName) => void;
 }
 
-const trackLabels: Record<TrackName, string> = {
-  'sitare': 'Sitaare ✦',
-  'khat': 'Khat ✦',
-  'arz-kiya-hai': 'Arz Kiya Hai ✦',
-  'sajde': 'Sajde ✦',
-};
-
-const trackFiles: Record<TrackName, string> = {
-  'sitare': '/audio/sitare.mp3',
-  'khat': '/audio/khat.mp3',
-  'arz-kiya-hai': '/audio/arz-kiya-hai.mp3',
-  'sajde': '/audio/sajde.mp3',
-};
-
-export default function BackgroundMusic({ playMusic, currentTrack }: BackgroundMusicProps) {
+export default function BackgroundMusic({ playMusic, currentTrack, onTrackChange }: BackgroundMusicProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [userMuted, setUserMuted] = useState(false);
+  const [activeTrackId, setActiveTrackId] = useState<TrackName>(currentTrack);
+  const [manualOverride, setManualOverride] = useState(false);
+  const [isPlaylistOpen, setIsPlaylistOpen] = useState(false);
   const [reducedMotion, setReducedMotion] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
-  const currentTrackRef = useRef<TrackName | null>(null);
+
+  // Sync external track changes unless manually chosen
+  useEffect(() => {
+    if (!manualOverride && currentTrack !== activeTrackId) {
+      setActiveTrackId(currentTrack);
+    }
+  }, [currentTrack, manualOverride, activeTrackId]);
 
   // Check prefers-reduced-motion
   useEffect(() => {
@@ -41,7 +90,33 @@ export default function BackgroundMusic({ playMusic, currentTrack }: BackgroundM
     return () => mediaQuery.removeEventListener('change', listener);
   }, []);
 
-  // Handle track switches and playMusic states
+  const activeTrackObj = playlist.find(t => t.id === activeTrackId) || playlist[0];
+
+  // Play a specific track
+  const playTrack = useCallback((trackId: TrackName) => {
+    setActiveTrackId(trackId);
+    onTrackChange?.(trackId);
+
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    const targetObj = playlist.find(t => t.id === trackId) || playlist[0];
+    audio.src = targetObj.file;
+    audio.currentTime = 0;
+    audio.volume = 1.0;
+    audio.load();
+
+    audio.play()
+      .then(() => {
+        setIsPlaying(true);
+        setUserMuted(false);
+      })
+      .catch((err) => {
+        console.warn('Playback deferred:', err);
+      });
+  }, [onTrackChange]);
+
+  // Handle playMusic trigger from welcome screen
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -54,40 +129,20 @@ export default function BackgroundMusic({ playMusic, currentTrack }: BackgroundM
       return;
     }
 
-    // Always 100% full volume as requested
     audio.volume = 1.0;
-
-    const targetSrc = trackFiles[currentTrack];
-
-    // Check if we need to switch tracks
-    if (currentTrackRef.current !== currentTrack) {
-      currentTrackRef.current = currentTrack;
-      audio.src = targetSrc;
-      audio.currentTime = 0;
+    if (!audio.src || !audio.src.includes(activeTrackObj.file)) {
+      audio.src = activeTrackObj.file;
       audio.load();
-      
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            setIsPlaying(true);
-          })
-          .catch((err) => {
-            console.warn(`Autoplay blocked for track ${currentTrack}:`, err);
-            setIsPlaying(false);
-          });
-      }
-    } else if (audio.paused && !userMuted) {
-      const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => setIsPlaying(true))
-          .catch((err) => console.warn('Play attempt failed:', err));
-      }
     }
-  }, [playMusic, currentTrack, userMuted, isPlaying]);
 
-  // Fallback interaction listener to guarantee playback on mobile / strict autoplay environments
+    if (audio.paused && !userMuted) {
+      audio.play()
+        .then(() => setIsPlaying(true))
+        .catch((err) => console.warn('Autoplay wait:', err));
+    }
+  }, [playMusic, userMuted, activeTrackObj.file, isPlaying]);
+
+  // Handle first user interaction fallback
   useEffect(() => {
     if (!playMusic || isPlaying || userMuted) return;
 
@@ -117,6 +172,13 @@ export default function BackgroundMusic({ playMusic, currentTrack }: BackgroundM
     return () => removeListeners();
   }, [playMusic, isPlaying, userMuted]);
 
+  // Handle track ending -> play next in playlist
+  const handleTrackEnded = () => {
+    const currentIndex = playlist.findIndex(t => t.id === activeTrackId);
+    const nextIndex = (currentIndex + 1) % playlist.length;
+    playTrack(playlist[nextIndex].id);
+  };
+
   const togglePlay = () => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -128,97 +190,188 @@ export default function BackgroundMusic({ playMusic, currentTrack }: BackgroundM
     } else {
       setUserMuted(false);
       audio.volume = 1.0;
-      if (!audio.src || currentTrackRef.current !== currentTrack) {
-        audio.src = trackFiles[currentTrack];
-        currentTrackRef.current = currentTrack;
+      if (!audio.src || !audio.src.includes(activeTrackObj.file)) {
+        audio.src = activeTrackObj.file;
       }
       audio.play()
-        .then(() => {
-          setIsPlaying(true);
-        })
-        .catch((err) => {
-          console.error('Failed to toggle play audio:', err);
-        });
+        .then(() => setIsPlaying(true))
+        .catch((err) => console.error('Failed to toggle play audio:', err));
     }
+  };
+
+  const skipNext = () => {
+    setManualOverride(true);
+    const currentIndex = playlist.findIndex(t => t.id === activeTrackId);
+    const nextIndex = (currentIndex + 1) % playlist.length;
+    playTrack(playlist[nextIndex].id);
+  };
+
+  const skipPrev = () => {
+    setManualOverride(true);
+    const currentIndex = playlist.findIndex(t => t.id === activeTrackId);
+    const prevIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+    playTrack(playlist[prevIndex].id);
+  };
+
+  const selectTrack = (trackId: TrackName) => {
+    setManualOverride(true);
+    playTrack(trackId);
+    setIsPlaylistOpen(false);
   };
 
   return (
     <>
-      <audio 
-        ref={audioRef} 
-        loop 
-        preload="auto" 
-        src={trackFiles[currentTrack]}
+      <audio
+        ref={audioRef}
+        preload="auto"
+        src={activeTrackObj.file}
+        onEnded={handleTrackEnded}
       />
 
-      {/* Floating control button */}
-      <div 
-        className="fixed bottom-6 right-6 z-50 flex items-center justify-end"
-        onMouseEnter={() => setShowTooltip(true)}
-        onMouseLeave={() => setShowTooltip(false)}
+      {/* Floating Music Widget */}
+      <div
+        className="fixed bottom-5 right-5 sm:bottom-6 sm:right-6 z-50 flex flex-col items-end"
       >
+        {/* Playlist Drawer Modal / Popover */}
         <AnimatePresence>
-          {showTooltip && (
+          {isPlaylistOpen && (
             <motion.div
-              initial={{ opacity: 0, x: 10, scale: 0.95 }}
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={{ opacity: 0, x: 10, scale: 0.95 }}
-              className="mr-3 glass px-3.5 py-1.5 rounded-full border border-warmGold/30 text-xs font-cormorant text-softIvory whitespace-nowrap tracking-wider pointer-events-none select-none shadow-lg bg-deepBlack/90 flex items-center gap-2"
+              initial={{ opacity: 0, y: 15, scale: 0.95 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 15, scale: 0.95 }}
+              transition={{ duration: 0.3 }}
+              className="mb-3 w-80 sm:w-96 glass rounded-2xl border border-warmGold/40 bg-deepBlack/95 shadow-2xl p-4 overflow-hidden"
             >
-              <span className="text-warmGold">♪</span>
-              <span>{isPlaying ? `Playing: ${trackLabels[currentTrack]}` : 'Music paused'}</span>
+              <div className="flex items-center justify-between border-b border-warmGold/20 pb-3 mb-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-warmGold">🎵</span>
+                  <span className="font-playfair text-sm font-bold text-softIvory">
+                    Songs For My Dove 🕊️
+                  </span>
+                </div>
+                <button
+                  onClick={() => setIsPlaylistOpen(false)}
+                  className="text-softIvory/60 hover:text-warmGold text-xs p-1"
+                >
+                  ✕
+                </button>
+              </div>
+
+              <div className="space-y-1.5 max-h-64 overflow-y-auto pr-1">
+                {playlist.map((track) => {
+                  const isActive = track.id === activeTrackId;
+                  return (
+                    <button
+                      key={track.id}
+                      onClick={() => selectTrack(track.id)}
+                      className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-left transition-all duration-200 cursor-pointer ${isActive
+                          ? 'bg-warmGold/20 border border-warmGold/50 text-warmGold font-semibold'
+                          : 'hover:bg-white/5 border border-transparent text-softIvory/80'
+                        }`}
+                    >
+                      <div className="flex items-center gap-3 truncate">
+                        <span className="text-xs">{isActive && isPlaying ? '▶️' : '♪'}</span>
+                        <div className="truncate">
+                          <p className="text-xs sm:text-sm font-medium truncate">{track.title}</p>
+                          <p className="text-[10px] text-softIvory/50 truncate">{track.artist}</p>
+                        </div>
+                      </div>
+                      {track.badge && (
+                        <span className="text-[9px] px-2 py-0.5 rounded-full border border-warmGold/30 text-warmGold/80 shrink-0 ml-2">
+                          {track.badge}
+                        </span>
+                      )}
+                    </button>
+                  );
+                })}
+              </div>
+
+              <div className="border-t border-warmGold/15 mt-3 pt-2 text-center">
+                <p className="font-cormorant text-[11px] text-softIvory/60 italic">
+                  &quot;Har gaana, har lafz sirf tumhare liye, Dhanshree ❤️&quot;
+                </p>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
 
-        <button
-          onClick={togglePlay}
-          className="relative w-12 h-12 rounded-full glass border border-warmGold/40 flex items-center justify-center text-warmGold shadow-lg hover:border-warmGold/80 transition-all duration-300 group cursor-pointer focus:outline-none focus:ring-1 focus:ring-warmGold/40 bg-deepBlack/80"
-          aria-label={isPlaying ? "Mute Music" : "Play Music"}
+        {/* Music Control Bar */}
+        <div
+          className="flex items-center gap-2 glass px-3 py-2 rounded-full border border-warmGold/35 shadow-[0_4px_25px_rgba(0,0,0,0.6)] bg-deepBlack/90 backdrop-blur-md"
+          onMouseEnter={() => setShowTooltip(true)}
+          onMouseLeave={() => setShowTooltip(false)}
         >
-          {/* Pulsating background ring */}
-          {isPlaying && !reducedMotion && (
-            <motion.span
-              animate={{ scale: [1, 1.4, 1], opacity: [0.4, 0, 0.4] }}
-              transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute inset-0 rounded-full border border-warmGold/35 pointer-events-none"
-            />
-          )}
+          {/* Previous Button */}
+          <button
+            onClick={skipPrev}
+            className="w-8 h-8 rounded-full flex items-center justify-center text-softIvory/70 hover:text-warmGold transition-colors cursor-pointer"
+            title="Previous Song"
+            aria-label="Previous Song"
+          >
+            ⏮
+          </button>
 
-          {/* Equalizer / Play icon */}
-          <div className="relative w-5 h-5 flex items-center justify-center">
+          {/* Main Play/Pause Button */}
+          <button
+            onClick={togglePlay}
+            className="relative w-10 h-10 rounded-full bg-gradient-to-br from-warmGold to-amberHighlight flex items-center justify-center text-deepBlack font-bold shadow-lg hover:scale-105 transition-all duration-300 cursor-pointer focus:outline-none"
+            aria-label={isPlaying ? "Pause Music" : "Play Music"}
+          >
             {isPlaying ? (
-              <div className="flex gap-[3px] items-end h-4 w-4 justify-center">
-                <span 
-                  className={`w-[2px] bg-warmGold rounded-full ${!reducedMotion ? 'animate-[pulse_1s_infinite_alternate]' : 'h-3'}`}
-                  style={{ animationDelay: '0.1s' }}
-                />
-                <span 
-                  className={`w-[2px] bg-warmGold rounded-full ${!reducedMotion ? 'animate-[pulse_0.8s_infinite_alternate]' : 'h-4'}`}
-                  style={{ animationDelay: '0.3s' }}
-                />
-                <span 
-                  className={`w-[2px] bg-warmGold rounded-full ${!reducedMotion ? 'animate-[pulse_1.2s_infinite_alternate]' : 'h-2'}`}
-                  style={{ animationDelay: '0.5s' }}
-                />
-              </div>
+              <span className="text-sm">⏸</span>
             ) : (
-              <svg 
-                className="w-5 h-5 fill-current"
-                viewBox="0 0 24 24" 
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6zm-2 16c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" />
-              </svg>
+              <span className="text-sm ml-0.5">▶</span>
             )}
-          </div>
-        </button>
+          </button>
+
+          {/* Next Button */}
+          <button
+            onClick={skipNext}
+            className="w-8 h-8 rounded-full flex items-center justify-center text-softIvory/70 hover:text-warmGold transition-colors cursor-pointer"
+            title="Next Song"
+            aria-label="Next Song"
+          >
+            ⏭
+          </button>
+
+          {/* Track Info & Playlist Toggle */}
+          <button
+            onClick={() => setIsPlaylistOpen(!isPlaylistOpen)}
+            className="flex items-center gap-2 pl-2 pr-2 border-l border-warmGold/20 text-left hover:opacity-90 transition-opacity cursor-pointer"
+          >
+            {/* Animated Sound Equalizer */}
+            <div className="flex gap-[2px] items-end h-3.5 w-3.5 justify-center">
+              <span
+                className={`w-[2px] bg-warmGold rounded-full ${isPlaying && !reducedMotion ? 'animate-[pulse_0.8s_infinite_alternate]' : 'h-1.5'}`}
+              />
+              <span
+                className={`w-[2px] bg-warmGold rounded-full ${isPlaying && !reducedMotion ? 'animate-[pulse_0.6s_infinite_alternate]' : 'h-3'}`}
+                style={{ animationDelay: '0.2s' }}
+              />
+              <span
+                className={`w-[2px] bg-warmGold rounded-full ${isPlaying && !reducedMotion ? 'animate-[pulse_1.1s_infinite_alternate]' : 'h-1.5'}`}
+                style={{ animationDelay: '0.4s' }}
+              />
+            </div>
+
+            <div className="max-w-[110px] sm:max-w-[150px] truncate">
+              <p className="text-[11px] sm:text-xs font-playfair font-semibold text-softIvory truncate">
+                {activeTrackObj.title}
+              </p>
+              <p className="text-[9px] text-warmGold/80 truncate">
+                {isPlaying ? 'Playing • Tap for songs' : 'Paused • Tap for songs'}
+              </p>
+            </div>
+
+            <span className="text-[10px] text-warmGold ml-1">☰</span>
+          </button>
+        </div>
       </div>
 
       <style jsx global>{`
         @keyframes pulse {
-          0% { height: 4px; }
-          100% { height: 16px; }
+          0% { height: 3px; }
+          100% { height: 14px; }
         }
       `}</style>
     </>

@@ -21,15 +21,26 @@ export default function TodayReminder() {
           transition={{ duration: 1, ease: 'easeOut' }}
           className="relative max-w-md mx-auto md:max-w-none w-full"
         >
-          <div className="relative w-full h-[360px] sm:h-[460px] md:h-[540px] rounded-lg overflow-hidden shadow-2xl border border-warmGold/25">
+          <div className="relative w-full h-[420px] sm:h-[520px] md:h-[580px] rounded-2xl overflow-hidden shadow-2xl border-2 border-warmGold/30 bg-black/60 p-2">
+            {/* Blurred ambient background */}
             <Image
-              src="/images/dear-her-3.jpeg"
-              alt="Dear Her"
+              src="/images/shree/shree-1.jpeg"
+              alt="Dhanshree - Backdrop"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
-              className="object-cover"
-              style={{ objectPosition: '50% 12%' }}
+              className="object-cover blur-md opacity-25 scale-110"
             />
+            {/* Full uncropped photo */}
+            <div className="relative w-full h-full rounded-xl overflow-hidden">
+              <Image
+                src="/images/shree/shree-1.jpeg"
+                alt="Dhanshree - My Dove"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-contain"
+                priority
+              />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-deepBlack/40 via-transparent to-transparent pointer-events-none" />
           </div>
           <div className="absolute -inset-4 bg-gradient-radial from-warmGold/10 to-transparent blur-2xl -z-10 rounded-lg"></div>
@@ -43,25 +54,25 @@ export default function TodayReminder() {
           className="space-y-6 sm:space-y-8 text-center md:text-left"
         >
           <span className="font-playfair text-[10px] tracking-[0.3em] text-warmGold uppercase block">
-            A Reminder For Today
+            A Reminder From My Heart
           </span>
 
           <h2 className="font-playfair text-3xl sm:text-4xl md:text-5xl font-bold gold-gradient">
-            Dear You,
+            Dearest Dhanshree,
           </h2>
 
           <div className="space-y-4 sm:space-y-6 font-inter text-sm sm:text-base md:text-lg text-softIvory/90 leading-relaxed">
             <p>
-              I know life can be overwhelming sometimes, and days can feel quiet and heavy — but I see you. I see the gentle strength you carry, the warmth you pour into everyone around you, and the sheer magic of your kind soul.
+              I know life can be overwhelming sometimes, and days can feel quiet and heavy — but I see you, my Dove. I see the gentle strength you carry, the warmth you pour into everyone around you, and the sheer magic of your kind, innocent soul.
             </p>
             <p>
               And I just want you to know: <span className="text-warmGold font-semibold">you are more wonderful than you could ever imagine.</span>
             </p>
             <p>
-              You don&apos;t need to achieve anything or prove anything to be worthy of love and happiness. Just walking into a room, just smiling, just being yourself — you make this world a softer, brighter, and infinitely more beautiful place.
+              You don&apos;t need to achieve anything or prove anything to be worthy of all the love and happiness in this universe. Just walking into a room, just smiling, just being yourself — you make this world a softer, brighter, and infinitely more beautiful place for me.
             </p>
             <p className="font-playfair text-lg sm:text-xl text-warmGold font-semibold italic border-l-2 border-warmGold/40 pl-4 py-1 text-left">
-              Never forget how truly special you are.
+              Never forget how truly irreplaceable you are to me, Dove 🕊️✨
             </p>
           </div>
         </motion.div>

@@ -8,60 +8,60 @@ const letters = [
     trigger: "Tired",
     title: "Open When You're Tired",
     content: [
-      "Hey. Put the worries down. Close your eyes. Step back from the noise of the world.",
-      "I know you carry so much so gracefully. But even the gentlest soul needs rest.",
-      "You don't have to carry the whole universe on your shoulders. You have already made today more beautiful just by existing in it.",
-      "Rest now. Tomorrow can wait. Take care of your gentle heart — it means the world to me."
+      "Hey my sweet Dove 🕊️. Put the worries down. Close your gentle eyes. Step back from the noise of the world.",
+      "I know you carry so much so gracefully, Dhanshree. But even the strongest, gentlest soul needs rest.",
+      "You don't have to carry the whole universe on your shoulders. You have already made my entire life more beautiful just by existing in it.",
+      "Rest now, Dhanshree. Tomorrow can wait. Take care of your gentle heart — it means everything to me."
     ]
   },
   {
     trigger: "Doubt Yourself",
     title: "Open When You Doubt Yourself",
     content: [
-      "So you're sitting there wondering if you're enough. Let me answer that for you: you are more than enough.",
-      "You are precious, rare, and deeply cherished. You have a kindness and warmth that lights up entire rooms without you even realizing it.",
-      "Doubt is just a passing shadow. It can never dim the sheer beauty of who you are.",
-      "I believe in you with all my heart. Even on the days you forget how extraordinary you are. Especially on those days."
+      "So you're sitting there wondering if you're enough. Let me answer that for you, Dhanshree: you are more than enough. You are extraordinary.",
+      "You are precious, rare, and deeply cherished, my Dove. You have a kindness and warmth that lights up entire rooms without you even realizing it.",
+      "Doubt is just a passing shadow. It can never dim the sheer, radiant beauty of who you are.",
+      "I believe in you with all my heart, Dhanshree. Even on the days you forget how breathtaking you are. Especially on those days."
     ]
   },
   {
     trigger: "Heart Feels Heavy",
     title: "Open When Your Heart Feels Heavy",
     content: [
-      "I know some days feel overwhelming. Some days feel like too much to hold all at once.",
-      "Take a gentle, slow breath. Remember that you are safe, and your worth has never depended on being perfect or pleasing anyone.",
-      "You are allowed to rest. You are allowed to be vulnerable. You don't have to face anything alone.",
-      "Whenever life feels heavy, close your eyes and remember: someone out there is wishing only peace and flowers for your path."
+      "I know some days feel overwhelming, Dhanshree. Some days feel like too much to hold all at once.",
+      "Take a gentle, slow breath, my Dove. Remember that you are safe, and your worth has never depended on being perfect or pleasing anyone.",
+      "You are allowed to rest. You are allowed to be vulnerable. You never have to face anything alone anymore.",
+      "Whenever life feels heavy, close your eyes and remember: someone right here is praying for your peace and holding you in his warmest thoughts."
     ]
   },
   {
     trigger: "Need to Smile",
     title: "Open When You Need to Smile",
     content: [
-      "Did you know your smile is honestly one of my favorite miracles in this world? I'm not even exaggerating.",
-      "When you smile, everything stops. It feels like the world takes a quiet breath just to admire it.",
-      "No matter what kind of day it has been, seeing you smile makes even my hardest days instantly lighter.",
-      "There it is. See? The world is brighter already. Never forget how much light you bring into this life."
+      "Did you know your smile is honestly my absolute favorite miracle in this world, Dhanshree? I'm not even exaggerating.",
+      "When you smile, everything stops. It feels like the world takes a quiet breath just to admire your happiness.",
+      "No matter what kind of day it has been, seeing you smile, my Dove, makes even my hardest days instantly lighter.",
+      "There it is. See? The world is brighter already. Never forget how much light you bring into my life."
     ]
   },
   {
     trigger: "Feel Lonely",
     title: "Open When You Feel Lonely",
     content: [
-      "Hey. If you're reading this, you might be having one of those quiet nights where everything feels a little too still.",
-      "Please remember this: you are never alone. Not really. You are always held in my warmest thoughts.",
+      "Hey Dhanshree. If you're reading this, you might be having one of those quiet nights where everything feels a little too still.",
+      "Please remember this, my Dove: you are never alone. Not really. You are always held in my heart and in my prayers.",
       "I made this little corner of the internet so you would always have a place that reminds you of how much you are cherished.",
-      "Someone thanks the stars every single night, just because you exist."
+      "Someone thanks the stars every single night, just because Dhanshree exists. ✨🕊️"
     ]
   },
   {
     trigger: "Celebrate",
     title: "Open When You Have Something to Celebrate",
     content: [
-      "I AM SO HAPPY FOR YOU! Look at that radiant smile of yours!",
-      "Seeing you happy, seeing your eyes sparkle with joy, is honestly the greatest sight in the universe.",
-      "You deserve every good thing, every ounce of happiness, and every beautiful dream that comes your way.",
-      "I am cheering for you always. Today, tomorrow, and every day that follows. ✨"
+      "I AM SO HAPPY FOR YOU, DHANSHREE! Look at that radiant smile of yours!",
+      "Seeing you happy, seeing your eyes sparkle with joy, is honestly the greatest sight in the entire universe, my Dove.",
+      "You deserve every good thing, every ounce of pure happiness, and every beautiful dream that comes your way.",
+      "I am cheering for you always. Today, tomorrow, and through every sunrise that follows. ✨💖"
     ]
   },
 ];
@@ -213,7 +213,7 @@ export default function OpenWhenLetters({ onConfessionOpen }: OpenWhenLettersPro
 
                 <div className="border-b border-[#E8DFD0] pb-3 sm:pb-4 mb-4 sm:mb-6 ml-4 sm:ml-6">
                   <span className="font-playfair text-[9px] sm:text-[10px] tracking-[0.25em] text-[#8C7A6B] uppercase block mb-1">
-                    From Aditya
+                    From Aditya • For My Dove Dhanshree 🕊️
                   </span>
                   <h4 className="font-playfair text-lg sm:text-2xl font-bold text-[#3D2F26]">
                     {letters[activeLetter].title}
@@ -228,9 +228,9 @@ export default function OpenWhenLetters({ onConfessionOpen }: OpenWhenLettersPro
 
                 <div className="border-t border-[#E8DFD0] pt-4 sm:pt-6 mt-4 sm:mt-6 text-center ml-4 sm:ml-6">
                   <p className="font-cormorant text-sm sm:text-base text-[#8C7A6B] italic">
-                    Always here for you. Always.
+                    Always here for you, Dhanshree. With all my love, always.
                   </p>
-                  <span className="text-lg sm:text-xl inline-block mt-2 select-none">💫</span>
+                  <span className="text-lg sm:text-xl inline-block mt-2 select-none">🕊️❤️✨</span>
                 </div>
               </motion.div>
             </motion.div>

@@ -26,8 +26,8 @@ export default function ClientEffects() {
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(
-        /Mobi|Android|iPhone|iPad|Macintosh/i.test(navigator.userAgent) || 
-        ('ontouchstart' in window) || 
+        /Mobi|Android|iPhone|iPad|Macintosh/i.test(navigator.userAgent) ||
+        ('ontouchstart' in window) ||
         (navigator.maxTouchPoints > 0)
       );
     };
@@ -76,7 +76,7 @@ export default function ClientEffects() {
   // Console Easter Egg
   useEffect(() => {
     console.log(
-      "%cHello, curious one. This page was made with a lot of care. ✦",
+      "%cDhanshree (My Dove 🕊️), every line of code, every pixel, and every word here was written with all my love for you. — Aditya ❤️",
       "color: #D4AF37; font-size: 16px; font-weight: bold; font-family: 'Playfair Display', serif; text-shadow: 0 0 5px rgba(212,175,55,0.4);"
     );
   }, []);
@@ -84,7 +84,7 @@ export default function ClientEffects() {
   return (
     <>
       {/* Scroll Progress Indicator (Hairline top) */}
-      <div 
+      <div
         className="fixed top-0 left-0 h-[2px] bg-warmGold z-[60] transition-all duration-100 ease-out origin-left"
         style={{ width: `${scrollPercent}%` }}
         aria-hidden="true"

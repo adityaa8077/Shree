@@ -18,8 +18,11 @@ export default function WhenLifeFeelsHeavy() {
           transition={{ duration: 1.2 }}
           className="text-center mb-12"
         >
+          <span className="font-playfair text-[10px] tracking-[0.3em] text-warmGold uppercase block mb-2">
+            Comfort For My Dove 🕊️
+          </span>
           <p className="font-cormorant text-2xl md:text-3xl text-warmGold italic">
-            &quot;If you&apos;ve come back here after a hard day, this part is for you.&quot;
+            &quot;If you&apos;ve come back here after a hard day, Dhanshree, this part is just for you.&quot;
           </p>
         </motion.div>
 
@@ -46,7 +49,7 @@ export default function WhenLifeFeelsHeavy() {
             </p>
 
             <p>
-              I want you to know how deeply and sincerely you are appreciated. Every single day, your gentle presence brings warmth and light to those lucky enough to know you. You don&apos;t have to carry the weight of the world on your shoulders.
+              I want you to know how deeply and sincerely you are appreciated, Dhanshree. Every single day, your gentle presence brings warmth and light into my world. You don&apos;t have to carry the weight of the universe on your shoulders alone.
             </p>
 
             <p>
@@ -82,15 +85,18 @@ export default function WhenLifeFeelsHeavy() {
 
             <div className="pt-8 text-center border-t border-warmGold/5 mt-8 space-y-2">
               <p className="font-playfair text-xl md:text-2xl gold-gradient font-bold">
-                Someone believes in you.
+                Someone believes in you, Dhanshree.
               </p>
               <p className="font-playfair text-xl md:text-2xl gold-gradient font-bold">
-                Someone is proud of you.
+                Someone is so proud of you, my Dove.
+              </p>
+              <p className="font-playfair text-xl md:text-2xl text-rose-300 font-bold">
+                And someone loves you with all his heart.
               </p>
               <p className="font-cormorant text-lg md:text-xl text-softIvory/70 italic mt-4">
-                And that will never change — no matter what.
+                That will never change — no matter what.
                 <br />
-                Always.
+                Always and forever. 🕊️✨
               </p>
             </div>
           </div>

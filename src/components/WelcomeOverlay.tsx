@@ -107,10 +107,19 @@ export default function WelcomeOverlay({ onEnter }: WelcomeOverlayProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: 'easeOut' }}
-                className="font-playfair text-3xl sm:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 tracking-widest text-warmGold"
+                className="font-playfair text-3xl sm:text-5xl lg:text-6xl font-bold mb-2 sm:mb-3 tracking-widest text-warmGold"
               >
-                Dear Her ✦
+                Dhanshree ✦
               </motion.h1>
+
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.1, duration: 0.5 }}
+                className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-rose-300/30 bg-rose-500/10 mb-4 sm:mb-6"
+              >
+                <span className="text-xs uppercase tracking-[0.25em] text-rose-200 font-inter">To My Dearest Dove 🕊️</span>
+              </motion.div>
 
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
@@ -118,8 +127,8 @@ export default function WelcomeOverlay({ onEnter }: WelcomeOverlayProps) {
                 transition={{ delay: 0.15, duration: 0.6, ease: 'easeOut' }}
                 className="font-cormorant text-lg sm:text-2xl leading-relaxed italic text-softIvory/90 mb-8 sm:mb-12 max-w-md px-2"
               >
-                &quot;I made this little corner of the internet...
-                just for you.&quot;
+                &quot;I made this little corner of the universe...
+                just for you, Dhanshree. Turn the volume up, and take your time.&quot;
               </motion.p>
 
               <motion.button
@@ -131,8 +140,9 @@ export default function WelcomeOverlay({ onEnter }: WelcomeOverlayProps) {
                 onClick={handleEnter}
                 className="relative px-10 sm:px-14 py-3.5 sm:py-4 rounded border-2 border-warmGold text-warmGold font-inter tracking-[0.25em] uppercase text-xs sm:text-sm font-semibold overflow-hidden group cursor-pointer shadow-[0_0_25px_rgba(212,175,55,0.3)] bg-deepBlack/80"
               >
-                <span className="relative z-10 transition-colors duration-300 group-hover:text-deepBlack">
-                  Enter The Story ✨
+                <span className="relative z-10 transition-colors duration-300 group-hover:text-deepBlack flex items-center gap-2">
+                  <span>Enter My Heart</span>
+                  <span>🕊️✨</span>
                 </span>
                 <div className="absolute inset-0 bg-warmGold transform scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom z-0"></div>
               </motion.button>

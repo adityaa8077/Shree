@@ -9,19 +9,19 @@ export default function TheQuietGrind() {
   const romanticMoments = [
     { 
       title: "The Soft Strength", 
-      description: "In a world that can feel loud and demanding, you carry a quiet grace. You never have to shout to be felt; your presence alone brings a calming, peaceful warmth." 
+      description: "In a world that can feel loud and demanding, you carry a quiet, calming grace, Dhanshree. You never have to shout to be felt; your presence alone brings peace to my restless heart." 
     },
     { 
-      title: "The Generous Heart", 
-      description: "The way you make others feel seen, safe, and deeply appreciated. You pour kindness into little moments without ever asking for praise or recognition." 
+      title: "The Generous Heart of My Dove", 
+      description: "The effortless way you make others feel seen, safe, and deeply appreciated. You pour kindness into little moments without ever asking for praise or recognition in return." 
     },
     { 
-      title: "The Unfiltered Smile", 
-      description: "Not the smile put on for others, but that real, spontaneous laughter that lights up your eyes. It is honestly one of my favorite miracles in this world." 
+      title: "Your Unfiltered, Innocent Smile", 
+      description: "Not the smile put on for others, but that real, spontaneous laughter when your eyes sparkle. It is honestly one of my absolute favorite miracles in this universe." 
     },
     { 
-      title: "The Quiet Thoughts", 
-      description: "Even when I am just sitting alone in a quiet room, thoughts of you bring an effortless smile to my face. Knowing you exist is enough to brighten any day." 
+      title: "Quietly in My Thoughts", 
+      description: "Even when I am just sitting alone in a quiet room, thoughts of you, Dhanshree, bring an effortless smile to my face. Knowing you exist is enough to brighten my darkest days." 
     },
   ];
 
@@ -40,13 +40,13 @@ export default function TheQuietGrind() {
           className="text-center mb-16"
         >
           <span className="font-playfair text-[10px] tracking-[0.3em] text-warmGold uppercase block mb-2">
-            What I Admire In You
+            What I Love Most About You
           </span>
           <h2 className="font-playfair text-4xl md:text-6xl font-bold mb-6 gold-gradient">
-            The Quiet Beauty in You
+            The Beautiful Soul of My Dove
           </h2>
           <p className="font-cormorant text-xl md:text-2xl text-softIvory/70 italic max-w-2xl mx-auto">
-            &quot;It&apos;s not just how radiant you are. It&apos;s the gentle grace you carry everywhere.&quot;
+            &quot;It&apos;s not just how breathtaking you look, Dhanshree. It&apos;s the gentle grace you carry in your heart.&quot;
           </p>
           <div className="w-[80px] h-[1px] bg-gradient-to-r from-transparent via-warmGold to-transparent mx-auto mt-6"></div>
         </motion.div>

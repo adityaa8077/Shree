@@ -2,19 +2,19 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display, Cormorant_Garamond, Caveat } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ 
+const inter = Inter({
   subsets: ["latin"],
   variable: '--font-inter',
   display: 'swap',
 });
 
-const playfair = Playfair_Display({ 
+const playfair = Playfair_Display({
   subsets: ["latin"],
   variable: '--font-playfair',
   display: 'swap',
 });
 
-const cormorant = Cormorant_Garamond({ 
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-cormorant',
@@ -28,16 +28,16 @@ const caveat = Caveat({
 });
 
 export const metadata: Metadata = {
-  title: "Dear Her ✦",
-  description: "A small corner of the internet, made just for you — to remind you how incredible you already are.",
-  keywords: "dear her, love, confession, appreciation, romance, gratitude, heartfelt letter",
-  authors: [{ name: "Made with love by Aditya" }],
+  title: "For Dhanshree ✦ | To My Dearest Dove 🕊️",
+  description: "A small corner of the universe, made just for you, Dhanshree — to remind you how deeply you are loved and cherished.",
+  keywords: "Dhanshree, Dove, love, confession, romantic, love letter, forever, Aditya",
+  authors: [{ name: "Made with all my heart by Aditya" }],
   icons: {
     icon: '/favicon.svg',
   },
   openGraph: {
-    title: "Dear Her ✦",
-    description: "Something I should have told you a long time ago.",
+    title: "For Dhanshree ✦ | To My Dearest Dove 🕊️",
+    description: "Every word here was written just for you. Something straight from my heart.",
     type: "website",
   },
 };

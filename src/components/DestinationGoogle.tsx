@@ -5,29 +5,29 @@ import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
 
 const wishes = [
-  { 
-    name: "Endless Peace", 
-    tagline: "A calm, serene heart", 
-    icon: "🌸", 
-    description: "Quiet mornings, restful nights, and a life where your soul is always at ease and free from burdens." 
+  {
+    name: "Endless Peace",
+    tagline: "A calm, serene heart",
+    icon: "🌸",
+    description: "Quiet mornings, restful nights, and a life where your soul is always at ease and free from burdens."
   },
-  { 
-    name: "Unconditional Warmth", 
-    tagline: "Cherished for who you are", 
-    icon: "✨", 
-    description: "Surrounded by people who protect, appreciate, and treasure the softness of your gentle heart." 
+  {
+    name: "Unconditional Warmth",
+    tagline: "Cherished for who you are",
+    icon: "✨",
+    description: "Surrounded by people who protect, appreciate, and treasure the softness of your gentle heart."
   },
-  { 
-    name: "A Path of Flowers", 
-    tagline: "Beyond what you ever imagined", 
-    icon: "🌙", 
-    description: "Every quiet wish you whisper to the universe unfolding in the most beautiful, magical ways." 
+  {
+    name: "A Path of Flowers",
+    tagline: "Beyond what you ever imagined",
+    icon: "🌙",
+    description: "Every quiet wish you whisper to the universe unfolding in the most beautiful, magical ways."
   },
-  { 
-    name: "Infinite Reasons to Smile", 
-    tagline: "That miracle smile", 
-    icon: "🤍", 
-    description: "Because that smile of yours is one of the world's greatest miracles, and you deserve endless joy." 
+  {
+    name: "Infinite Reasons to Smile",
+    tagline: "That miracle smile",
+    icon: "🤍",
+    description: "Because that smile of yours is one of the world's greatest miracles, and you deserve endless joy."
   },
 ];
 
@@ -49,13 +49,13 @@ export default function DestinationGoogle() {
           className="text-center mb-12 sm:mb-16"
         >
           <span className="font-playfair text-[10px] tracking-[0.3em] text-warmGold uppercase block mb-2">
-            My Wishes For You
+            My Wishes For Dhanshree (Dove 🕊️)
           </span>
           <h2 className="font-playfair text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 gold-gradient">
             All The Beauty You Deserve
           </h2>
           <p className="font-cormorant text-lg sm:text-xl md:text-2xl text-softIvory/70 italic max-w-2xl mx-auto px-2">
-            &quot;I truly hope that wherever life takes you, it lays out a path of flowers for you.&quot;
+            &quot;I pray that wherever life takes you, Dhanshree, it lays out a path of flowers for your delicate feet.&quot;
           </p>
           <div className="w-[80px] h-[1px] bg-gradient-to-r from-transparent via-warmGold to-transparent mx-auto mt-4 sm:mt-6"></div>
         </motion.div>
@@ -92,19 +92,27 @@ export default function DestinationGoogle() {
           transition={{ duration: 1.2, delay: 0.3 }}
           className="relative w-full max-w-2xl mx-auto"
         >
-          <div className="relative w-full h-[320px] sm:h-[420px] md:h-[480px] rounded-lg overflow-hidden shadow-2xl border border-warmGold/20">
+          <div className="relative w-full h-[400px] sm:h-[500px] md:h-[560px] rounded-2xl overflow-hidden shadow-2xl border-2 border-warmGold/30 bg-black/60 p-2">
             <Image
-              src="/images/dear-her-2.jpeg"
-              alt="Dear Her - Radiant Grace"
+              src="/images/shree/shree-3.jpeg"
+              alt="Dhanshree - Backdrop"
               fill
               sizes="(max-width: 768px) 100vw, 650px"
-              className="object-cover"
-              style={{ objectPosition: '50% 15%' }}
+              className="object-cover blur-md opacity-25 scale-110"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-deepBlack/80 via-deepBlack/20 to-transparent pointer-events-none"></div>
+            <div className="relative w-full h-full rounded-xl overflow-hidden">
+              <Image
+                src="/images/shree/shree-3.jpeg"
+                alt="Dhanshree - Radiant Grace"
+                fill
+                sizes="(max-width: 768px) 100vw, 650px"
+                className="object-contain"
+              />
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-deepBlack/85 via-transparent to-transparent pointer-events-none"></div>
             <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6 text-center sm:text-left">
-              <p className="font-cormorant text-lg sm:text-2xl text-softIvory italic font-medium">
-                &quot;Somewhere out there is someone who thanks the stars every single night, just because you exist.&quot;
+              <p className="font-cormorant text-lg sm:text-2xl text-softIvory italic font-medium drop-shadow-lg">
+                &quot;Somewhere out there is someone who thanks the stars every single night, just because Dhanshree exists. 🕊️✨&quot;
               </p>
             </div>
           </div>

@@ -42,12 +42,12 @@ export default function ThingsNeverChange() {
           className="text-center mb-16 px-4"
         >
           <span className="font-playfair text-xs tracking-[0.25em] text-warmGold uppercase block mb-4">
-            Things About You That I Love
+            Things About You That I Love • My Dove 🕊️
           </span>
           <p className="font-cormorant text-2xl md:text-3xl lg:text-4xl text-softIvory font-medium italic leading-relaxed">
             &quot;In a world full of people trying to be someone else,
             <br />
-            you&apos;re perfectly, beautifully, you.&quot;
+            you, Dhanshree, are perfectly, beautifully, you.&quot;
           </p>
           <div className="w-[60px] h-[1px] bg-warmGold/20 mx-auto mt-8"></div>
         </motion.div>
@@ -87,15 +87,15 @@ export default function ThingsNeverChange() {
           className="text-center mt-16 max-w-2xl mx-auto border-t border-warmGold/10 pt-10 px-4"
         >
           <p className="font-cormorant text-xl md:text-2xl text-softIvory/90 italic leading-relaxed">
-            These things will never change. No matter what happens.
+            These things will never change, Dhanshree. No matter what happens in life.
             <br />
-            These are the reasons I&apos;ll always believe in you.
+            These are the reasons my heart will always belong to you, my Dove. 🕊️❤️
           </p>
         </motion.div>
 
         <div className="section-divider max-w-xl mx-auto my-16 opacity-25"></div>
       </div>
-      
+
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-warmGold/[0.02] blur-[120px] rounded-full pointer-events-none -z-10" />
     </section>
   );
